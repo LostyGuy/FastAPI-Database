@@ -1,0 +1,9 @@
+from sqlalchemy import Column, Integer, String
+from app.database import Base
+
+# Exanmple of a model class
+
+# class Name(Base):
+#     __tablename__ = "name"
+#     id = Column(Integer, primary_key=True, index=True)
+
