@@ -18,6 +18,8 @@ Basic Structure Is:
 Goal is to create steam-like display of game's titles with functionalities just like steam has.
 
 Structure Is:
+Steam-like-database-API
+
 - app:
     - __init__.py
     - database.py

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games_View</title>
+</head>
+<style>
+
+    body {
+        background-color:rgb(3, 88, 206);
+        padding: 20px;
+    }
+    table {
+        margin: auto;
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+    th, td {
+        line-height: 1.5;
+        padding: 10px;
+        text-align: left;
+        background-color: rgb(102, 183, 238);
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+    }
+</style>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Developer</th>
+                <th>Publisher</th>
+                <th>Tag</th>
+                <th>Platform</th>
+            </tr>
+            <tr>
+                <td>{{ game.title }}</td>
+                <td>{{ game.developer }}</td>
+                <td>{{ game.publisher }}</td>
+                <td>{{ game.tag }}</td>
+                <td>{{ game.platform }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

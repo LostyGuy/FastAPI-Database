@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja</title>
+</head>
+<body>
+    <h1>Rejestracja</h1>
+    <form method="POST" action="/register">
+        <label for="login">Login:</label><br>
+        <input type="text" id="login" name="login" required><br><br>
+        
+        <label for="password">Hasło:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="username">Nazwa Użytkownika:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <input type="submit" value="Zarejestruj się">
+    </form>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if success %}
+        <p style="color: green;">{{ success }}</p>
+    {% endif %}
+</body>
+</html>
