@@ -32,5 +32,7 @@ Steam-like-database-API
 - requirements.txt
 
 ### Current look of ```games_view.py```
+![gvcl](/md-images/games_view-001.png)
 
 ### Current look of ```game_details.py```
+![gdcl](/md-images/game_details-001.png)
