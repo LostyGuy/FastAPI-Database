@@ -23,7 +23,7 @@ def get_db():
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
     return templates.TemplateResponse(
-        "games_view.html", {"request": request})
+        "main_page.html", {"request": request})
 
 # Mount static files
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
