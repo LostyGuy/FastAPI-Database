@@ -20,11 +20,11 @@ Goal is to create steam-like display of game titles with functionalities just li
 Structure Is:
 - app_core:
     - __init__.py
- - database.py
- - main.py
- - models.py
- - schemas.py
+    - database.py
+    - main.py
+    - models.py
+    - schemas.py
 - templates:
- - games_view.py
- - game_details.py
+    - games_view.py
+    - game_details.py
 - requirements.txt
