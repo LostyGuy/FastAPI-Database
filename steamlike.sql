@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2025 at 07:52 AM
+-- Generation Time: Apr 07, 2025 at 08:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -91,6 +91,26 @@ INSERT INTO `games` (`game_id`, `title`, `developer`, `publisher`, `platform`, `
 (44, 'Dota 2', 'Valve', 'Valve', 'PC', 'MOBA', 2013, 0.00, 4.6, NULL),
 (45, 'Team Fortress 2', 'Valve', 'Valve', 'PC', 'Shooter', 2007, 0.00, 4.4, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `Login` text NOT NULL,
+  `Hashed_Password` text NOT NULL,
+  `Username` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `Login`, `Hashed_Password`, `Username`) VALUES
+(14, 'maksym@gmail.com', 'YnJha2hhc2xh', 'LostyGuy');
+
 --
 -- Indexes for dumped tables
 --
@@ -102,6 +122,13 @@ ALTER TABLE `games`
   ADD PRIMARY KEY (`game_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `login` (`Login`) USING HASH;
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -110,6 +137,12 @@ ALTER TABLE `games`
 --
 ALTER TABLE `games`
   MODIFY `game_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
