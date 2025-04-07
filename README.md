@@ -13,7 +13,7 @@ Basic Structure Is:
 - templates (empty)
     - requirements.txt
 
-## Steam-like database API
+## Steam-like database API Branch
 
 Goal is to create steam-like display of game titles with functionalities just like steam has.
 
