@@ -16,3 +16,10 @@ class Games(Base):
     tag = Column(String, index=True)
     platform = Column(String, index=True)
     img_url = Column(String, index=True)
+    
+class Users(Base):
+    __tablename__ = 'users'
+    user_id = Column(Integer, primary_key=True, index=True)
+    login = Column(String, unique=True, index=True)
+    hashed_password = Column(String, index=True)
+    username = Column(String, index=True)

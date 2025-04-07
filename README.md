@@ -28,3 +28,5 @@ Structure Is:
         -games_view.py
         -game_details.py
     -requirements.txt
+
+- 

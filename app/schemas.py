@@ -18,9 +18,17 @@ class GamesBase(BaseModel):
     tag: str
     platform: str
     img_url: str
-
     class Config:
         from_attributes = True
-
 class GamesResponse(GamesBase):
     game_id: int
+    
+class UsersBase(BaseModel):
+    user_id: int
+    login: str
+    username: str
+    hashed_password: str
+    class Config:
+        from_attributes = True
+class UsersCreate(UsersBase):
+    pass

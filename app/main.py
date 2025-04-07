@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 from app import schemas, models, database
+import base64
 
 app = FastAPI()
 
@@ -46,4 +47,38 @@ async def read_games(request: Request, id: int, db: Session = Depends(get_db)):
         )
     return templates.TemplateResponse(
         "game_details.html", {"request": request, "game": game}
+    )
+
+# Endpoint to register users
+@app.get("/register", response_class=HTMLResponse)
+async def register_site(request: Request):
+    return templates.TemplateResponse("register.html", {"request": request})
+
+@app.post("/register", response_class=HTMLResponse)
+async def register_user(request: Request, db: Session = Depends(get_db)):
+    
+    form = await request.form()
+    login = form.get("login")
+    password = base64.b64encode((form.get("password")).encode())
+    username = form.get("username")
+        
+    existing_user = db.query(models.Users).filter(models.Users.login == login).first()
+    if existing_user:
+        return templates.TemplateResponse(
+            "register.html",
+            {"request": request, "error": "Login already exists. Please choose another."},
+        )
+    
+    new_user = models.Users(
+        login=login,
+        hashed_password=password,
+        username=username
+    )
+
+    db.add(new_user)
+    db.commit()
+    db.close()
+    
+    return templates.TemplateResponse(
+        "register.html", {"request": request, "success": "User registered successfully"}
     )
