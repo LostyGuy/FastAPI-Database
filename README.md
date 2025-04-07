@@ -10,7 +10,7 @@ Basic Structure Is:
     - main.py
     - models.py
     - schemas.py
-- templates (empty)"
+- templates (empty):
 - requirements.txt
 
 ## Steam-like database API Branch
@@ -18,8 +18,6 @@ Basic Structure Is:
 Goal is to create steam-like display of game's titles with functionalities just like steam has.
 
 Structure Is:
-Steam-like-database-API
-
 - app:
     - __init__.py
     - database.py
@@ -27,12 +25,12 @@ Steam-like-database-API
     - models.py
     - schemas.py
 - templates:
-    - games_view.py
-    - game_details.py
+    - games_view.html
+    - game_details.html
 - requirements.txt
 
-### Current look of ```games_view.py```
+### Current look of ```games_view```
 ![gvcl](/md-images/games_view-001.png)
 
-### Current look of ```game_details.py```
+### Current look of ```game_details```
 ![gdcl](/md-images/game_details-001.png)
