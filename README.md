@@ -32,5 +32,5 @@ Structure Is:
 ### Current look of ```games_view```
 ![gvcl](/md-images/games_view-001.png)
 
-### Current look of ```game_details```
+### Current look of ```game_details``` for Minecraft
 ![gdcl](/md-images/game_details-001.png)
