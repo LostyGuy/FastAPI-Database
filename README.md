@@ -18,13 +18,13 @@ Basic Structure Is:
 Goal is to create steam-like display of game titles with functionalities just like steam has.
 
 Structure Is:
--app_core:
- -__init__.py
- -database.py
- -main.py
- -models.py
- -schemas.py
--templates:
- -games_view.py
- -game_details.py
--requirements.txt
+- app_core:
+    - __init__.py
+ - database.py
+ - main.py
+ - models.py
+ - schemas.py
+- templates:
+ - games_view.py
+ - game_details.py
+- requirements.txt
