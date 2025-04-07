@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from app_core import database
+from app import database
 
 # Exanmple of a model class
 
