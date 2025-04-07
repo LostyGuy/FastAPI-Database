@@ -1,7 +1,9 @@
 # FastAPI-Database
 ## Master Branch
 
-This branch is a base for other branches. Reason behind it is that I will surely create variations of APIs so there is no need to create a repository for every single one when branches can do it better.``` __init__.py ```contains commands to get started with virtual enviroment and run local server.
+This branch is a base for other branches. Reason behind it is that I will surely create variations of APIs so there is no need to create a repository for every single one when branches can do it better. <br/>
+``` __init__.py ``` contains commands to get started with virtual enviroment and run local server.<br/>
+```steamlike.sql``` is updated every time a major change appears.
 
 Basic Structure Is:
 - app:
