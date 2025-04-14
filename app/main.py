@@ -1,10 +1,12 @@
-from fastapi import FastAPI, Request, Depends
+from fastapi import FastAPI, Request, Depends, Response
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 from app import schemas, models, database
 import base64
+import random as rand
+import string as st
 
 app = FastAPI()
 
@@ -83,3 +85,43 @@ async def register_user(request: Request, db: Session = Depends(get_db)):
     return templates.TemplateResponse(
         "register.html", {"request": request, "success": "User registered successfully"}
     )
+    
+@app.get("/login", response_class=HTMLResponse)
+async def login_site(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request})
+    
+@app.post("/login", response_class=HTMLResponse)
+async def login_site(request: Request, response: Response, db: Session = Depends(get_db)):
+    
+    form = await request.form()
+    in_login = form.get("login")
+    in_password = base64.b64encode(form.get("password").encode()).decode()
+    
+    if not in_login or not in_password:
+        return templates.TemplateResponse(
+            "login.html", {"request": request, "error": "Login and password are required"}
+        )
+    elif db.query(models.Users).filter(models.Users.login == in_login).first():
+        user = db.query(models.Users).filter(models.Users.login == in_login).first()
+        db_login = user.login
+        db_password = user.hashed_password
+        if db_login != in_login or db_password != in_password:
+            return templates.TemplateResponse(
+            "login.html", {"request": request, "error": "Invalid login or password", }
+            )
+        return templates.TemplateResponse(
+            "login.html", {"request": request, "success": "User logged successfully"}
+        )
+    session_key = "".join(rand.choices(st.ascii_letters + st.digits, k=32))
+    # Create a session and set a cookie
+    response.set_cookie(key=db.query(models.Session.token).filter(models.Session.user_id == u_id), value=session_key)
+    new_session = models.Session(
+        user_id=user.user_id,
+        token=session_key
+        )
+    
+    db.add(new_session)
+    db.commit()
+    db.close()
+
+    return templates.TemplateResponse("login.html", {"request": request, "success": "User logged successfully"}) 

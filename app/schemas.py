@@ -32,3 +32,13 @@ class UsersBase(BaseModel):
         from_attributes = True
 class UsersCreate(UsersBase):
     pass
+
+class SessionBase(BaseModel):
+    session_id: int
+    user_id: int
+    token: str
+    created_at: str
+    class Config:
+        from_attributes = True
+class SessionCreate(SessionBase):
+    pass

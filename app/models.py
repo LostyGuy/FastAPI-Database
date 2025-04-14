@@ -23,3 +23,14 @@ class Users(Base):
     login = Column(String, unique=True, index=True)
     hashed_password = Column(String, index=True)
     username = Column(String, index=True)
+    
+    # def __str__(self):
+    #     return f"User: {self.username} (Login: {self.login}) (Password: {self.hashed_password})"
+    
+class Session(Base):
+    __tablename__ = 'session'
+    session_id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, index=True)
+    token = Column(String, index=True)
+    created_at = Column(String, index=True)
+    expiration_date = Column(String, index=True)

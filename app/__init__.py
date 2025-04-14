@@ -4,4 +4,4 @@
 # Get requirements: pip freeze > requirements.txt
 # Installing Dependencies: pip install -r requirements.txt
 
-# Running the app: dev app_core
+# Running the app: dev app
